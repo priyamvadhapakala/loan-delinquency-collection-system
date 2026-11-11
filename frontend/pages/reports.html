@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10233f"><title>Reports · Meridian Collections</title><link rel="stylesheet" href="../css/style.css"></head>
+  <body data-page="reports" data-root="../"><div class="app-shell"><aside class="sidebar" id="app-sidebar" aria-label="Main navigation"></aside><div class="sidebar-scrim" data-sidebar-close></div><div class="workspace"><header class="topbar" id="app-topbar"></header>
+    <main class="main-content">
+      <div class="page-heading"><div><p class="eyebrow">PORTFOLIO INSIGHTS</p><h1>Reports</h1><p class="page-subtitle">Summaries of calculated delinquency and stored portfolio records.</p></div><div class="heading-actions"><button class="button button-secondary" type="button" data-action="download-report">↓ Export report</button></div></div>
+      <section class="filter-bar" aria-label="Report filters"><select class="form-control" id="report-period" aria-label="Report period" disabled><option>All records returned by API</option></select><select class="form-control" id="report-type" aria-label="Report type"><option value="portfolio">All report summaries</option><option value="overdue">Overdue loans</option><option value="payments">Payments</option><option value="collections">Collections</option></select><span class="table-count">Loading API records</span></section>
+      <section class="reports-grid">
+        <article class="panel">
+          <div class="panel-header"><div><p class="eyebrow">DELINQUENCY</p><h2>Overdue loan summary</h2></div><span class="badge badge-warning">Loading</span></div>
+          <div class="report-stat"><span>Total overdue balance</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>1–30 days past due</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>31–60 days past due</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>61–90 days past due</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>91+ days past due</span><strong>Loading</strong></div>
+          <div class="report-note">Calculated from schedules and posted payment allocations.</div>
+        </article>
+        <article class="panel">
+          <div class="panel-header"><div><p class="eyebrow">TRANSACTIONS</p><h2>Payment summary</h2></div><span class="badge badge-info">Loading</span></div>
+          <div class="report-stat"><span>Payments returned by API</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Posted payments</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Payment methods</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Currency</span><strong>Loading</strong></div>
+          <div class="report-note">Payment totals are reported by record count and currency.</div>
+        </article>
+        <article class="panel">
+          <div class="panel-header"><div><p class="eyebrow">WORK QUEUE</p><h2>Collection case summary</h2></div><span class="badge badge-info">Loading</span></div>
+          <div class="report-stat"><span>High priority</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Medium priority</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Low priority</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Cases returned by API</span><strong>Loading</strong></div>
+          <div class="report-note">Collection case totals are limited to records returned by the API.</div>
+        </article>
+        <article class="panel">
+          <div class="panel-header"><div><p class="eyebrow">REPORT CONTEXT</p><h2>API context</h2></div><span class="metric-icon icon-gold">i</span></div>
+          <div class="report-stat"><span>Reporting scope</span><strong id="report-date-label">Loading</strong></div>
+          <div class="report-stat"><span>Source</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Live data connection</span><strong>Loading</strong></div>
+          <div class="report-stat"><span>Business calculations</span><strong>Loading</strong></div>
+          <div class="report-note">Reporting values are loaded from calculation and record endpoints.</div>
+        </article>
+      </section>
+      <section class="panel" style="margin-top:16px" aria-label="Anomaly report">
+        <div class="panel-header panel-header-wrap"><div><p class="eyebrow">COMPLIANCE MONITORING</p><h2>Anomaly detection report</h2><p class="page-subtitle">Detected findings are based on stored transaction and compliance records; ground-truth labels are not used.</p></div><button class="button button-primary" type="button" data-action="detect-anomalies">Run detection</button></div>
+        <div class="report-note" data-anomaly-summary>Loading anomaly report…</div>
+        <div class="table-wrap"><table class="data-table" id="anomaly-table"><thead><tr><th>Type</th><th>Record</th><th>Reason</th><th>Status</th><th>Last detected</th></tr></thead><tbody></tbody></table></div>
+      </section>
+      <div class="page-footer"><span>Reports summarize calculated and stored API records</span><span>Anomaly detection is repeat-safe and excludes ground-truth labels</span></div>
+    </main></div><div class="toast-region" aria-live="polite" aria-atomic="true"></div></div>
+    <script src="../js/api.js"></script><script src="../js/app.js"></script><script src="../js/collections.js"></script>
+  </body>
+</html>

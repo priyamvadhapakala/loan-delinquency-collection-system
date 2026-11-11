@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10233f"><title>Collections · Meridian Collections</title><link rel="stylesheet" href="../css/style.css"></head>
+  <body data-page="collections" data-root="../"><div class="app-shell"><aside class="sidebar" id="app-sidebar" aria-label="Main navigation"></aside><div class="sidebar-scrim" data-sidebar-close></div><div class="workspace"><header class="topbar" id="app-topbar"></header>
+    <main class="main-content">
+      <div class="page-heading"><div><p class="eyebrow">COLLECTION WORKSPACE</p><h1>Collection management</h1><p class="page-subtitle">Prioritize casework and review customer and account context.</p></div><div class="heading-actions"><span class="date-chip">Cases from Flask API</span></div></div>
+      <section class="metric-grid">
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Active cases</span><span class="metric-icon icon-blue">◉</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">Open or in-progress cases</span></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">High priority</span><span class="metric-icon icon-gold">↑</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">Active high-priority cases</span></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">In progress</span><span class="metric-icon icon-violet">◷</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">Cases with in-progress status</span></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Resolved cases</span><span class="metric-icon icon-green">✓</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">Cases with resolved status</span></article>
+      </section>
+      <section class="panel" style="margin-bottom:16px" aria-label="Create a collection case">
+        <div class="panel-header"><div><p class="eyebrow">CASE INTAKE</p><h2>Create a case from current arrears</h2></div></div>
+        <form id="collection-case-form"><div class="form-grid">
+          <div class="form-field"><label for="case-loan">Overdue loan</label><select class="form-control" id="case-loan" name="loan_id" required><option value="">Loading eligible loans</option></select></div>
+          <div class="form-field"><label for="case-source">Case source</label><select class="form-control" id="case-source" name="case_source"><option value="manual">Manual</option><option value="system">System</option><option value="import">Import</option></select></div>
+        </div><p class="form-hint">Only loans with positive calculated arrears are listed. Existing active cases are returned rather than duplicated.</p>
+        <div class="message" id="collection-case-message" role="status"></div><div class="dialog-actions"><button class="button button-primary" type="submit">Create collection case</button></div></form>
+      </section>
+      <section class="filter-bar"><label class="search-field"><span class="search-icon" aria-hidden="true">⌕</span><input class="form-control" type="search" placeholder="Search case, customer or loan" aria-label="Search collection cases" data-filter-table="#case-table" data-status-filter="#case-status-filter"></label><select class="form-control" id="case-status-filter" aria-label="Filter case status"><option value="">All statuses</option><option value="open">Open</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select><select class="form-control" id="case-priority-filter" aria-label="Filter case priority"><option value="">All priorities</option><option value="high">High priority</option><option value="medium">Medium priority</option><option value="low">Low priority</option></select><span class="table-count" data-visible-count>5 records</span></section>
+      <section class="table-shell"><div class="table-wrap"><table class="data-table" id="case-table"><thead><tr><th>Case</th><th>Customer</th><th>Loan</th><th>Days overdue</th><th>Overdue amount</th><th>Priority</th><th>Status</th><th>Account controls</th><th>Update status</th></tr></thead><tbody>
+        <tr data-status="in_progress" data-priority="high" data-search="cas-000001 vikram patel cus-000001 lon-000001 high">
+          <td><span class="primary-cell">CAS-000001</span><small>Opened 20 Aug 2026</small></td><td>Vikram Patel<small>CUS-000001</small></td><td>LON-000001</td><td>82 days</td><td class="amount-cell">₹ 1,04,800</td><td><span class="badge badge-danger">High</span></td><td class="case-status-cell"><span class="badge badge-info">In progress</span></td><td><select class="status-select" aria-label="Update status for CAS-000001"><option value="in_progress" selected>In progress</option><option value="open">Open</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select></td>
+        </tr>
+        <tr data-status="in_progress" data-priority="medium" data-search="cas-000002 sana menon cus-000002 lon-000002 medium">
+          <td><span class="primary-cell">CAS-000002</span><small>Opened 10 Sep 2026</small></td><td>Sana Menon<small>CUS-000002</small></td><td>LON-000002</td><td>51 days</td><td class="amount-cell">₹ 62,100</td><td><span class="badge badge-warning">Medium</span></td><td class="case-status-cell"><span class="badge badge-info">In progress</span></td><td><select class="status-select" aria-label="Update status for CAS-000002"><option value="in_progress" selected>In progress</option><option value="open">Open</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select></td>
+        </tr>
+        <tr data-status="open" data-priority="high" data-search="cas-000003 dev bose cus-000003 lon-000003 high">
+          <td><span class="primary-cell">CAS-000003</span><small>Opened 10 Jul 2026</small></td><td>Dev Bose<small>CUS-000003</small></td><td>LON-000003</td><td>113 days</td><td class="amount-cell">₹ 1,48,750</td><td><span class="badge badge-danger">High</span></td><td class="case-status-cell"><span class="badge badge-neutral">Open</span></td><td><select class="status-select" aria-label="Update status for CAS-000003"><option value="open" selected>Open</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select></td>
+        </tr>
+        <tr data-status="open" data-priority="low" data-search="cas-000004 isha kapoor cus-000004 lon-000004 low">
+          <td><span class="primary-cell">CAS-000004</span><small>Opened 10 Oct 2026</small></td><td>Isha Kapoor<small>CUS-000004</small></td><td>LON-000004</td><td>21 days</td><td class="amount-cell">₹ 20,450</td><td><span class="badge badge-success">Low</span></td><td class="case-status-cell"><span class="badge badge-neutral">Open</span></td><td><select class="status-select" aria-label="Update status for CAS-000004"><option value="open" selected>Open</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select></td>
+        </tr>
+        <tr data-status="in_progress" data-priority="medium" data-search="cas-000005 zoya singh cus-000006 lon-000006 medium">
+          <td><span class="primary-cell">CAS-000005</span><small>Opened 10 Oct 2026</small></td><td>Zoya Singh<small>CUS-000006</small></td><td>LON-000006</td><td>21 days</td><td class="amount-cell">₹ 26,400</td><td><span class="badge badge-warning">Medium</span></td><td class="case-status-cell"><span class="badge badge-info">In progress</span></td><td><select class="status-select" aria-label="Update status for CAS-000005"><option value="in_progress" selected>In progress</option><option value="open">Open</option><option value="resolved">Resolved</option><option value="closed">Closed</option></select></td>
+        </tr>
+      </tbody></table></div><div class="panel-footer-note">Case priority and arrears come from calculated schedule data. Dispute, hardship, and debt-status changes are audited.</div></section>
+      <div class="page-footer"><span>Collection queue · Local synthetic database</span><span>Priorities come from API calculations</span></div>
+    </main></div><div class="toast-region" aria-live="polite" aria-atomic="true"></div></div>
+    <script src="../js/api.js"></script><script src="../js/app.js"></script><script src="../js/collections.js"></script>
+  </body>
+</html>

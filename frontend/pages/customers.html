@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10233f">
+    <title>Customers · Meridian Collections</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body data-page="customers" data-root="../">
+    <div class="app-shell">
+      <aside class="sidebar" id="app-sidebar" aria-label="Main navigation"></aside>
+      <div class="sidebar-scrim" data-sidebar-close></div>
+      <div class="workspace">
+        <header class="topbar" id="app-topbar"></header>
+        <main class="main-content">
+          <div class="page-heading">
+            <div><p class="eyebrow">PORTFOLIO</p><h1>Customer management</h1><p class="page-subtitle">Review customer records and manage contact details.</p></div>
+            <div class="heading-actions"><span class="date-chip">Customer records from API</span><button class="button button-primary" type="button" data-action="add-customer">＋ Add customer</button></div>
+          </div>
+          <section class="filter-bar" aria-label="Customer filters">
+            <label class="search-field"><span class="search-icon" aria-hidden="true">⌕</span><input class="form-control" type="search" placeholder="Search name, ID, email or phone" aria-label="Search customers" data-filter-table="#customer-table" data-status-filter="#customer-status-filter"></label>
+            <select class="form-control" id="customer-status-filter" aria-label="Filter by customer status"><option value="">All statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select>
+            <span class="table-count" data-visible-count>6 records</span>
+          </section>
+          <section class="table-shell" aria-label="Customer records">
+            <div class="table-wrap">
+              <table class="data-table" id="customer-table">
+                <thead><tr><th>Customer</th><th>Customer ID</th><th>Email</th><th>Phone</th><th>Loans</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody>
+                  <tr data-status="active" data-search="vikram patel cus-000001 vikram.patel.1@example.test +910000010001" data-details='[["Customer ID","CUS-000001"],["Name","Vikram Patel"],["Email","vikram.patel.1@example.test"],["Phone","+910000010001"],["Customer status","Active"],["Loan count","1"]]'>
+                    <td><span class="primary-cell">Vikram Patel</span><small>Customer since 01 Mar 2026</small></td><td>CUS-000001</td><td>vikram.patel.1@example.test</td><td>+91 00000 10001</td><td>1</td><td><span class="badge badge-success">Active</span></td><td><button class="table-action" type="button" data-action="show-details">View</button><button class="table-action" type="button" data-action="edit-customer" data-customer-id="CUS-000001">Edit</button></td>
+                  </tr>
+                  <tr data-status="active" data-search="sana menon cus-000002 sana.menon.2@example.test +910000010002" data-details='[["Customer ID","CUS-000002"],["Name","Sana Menon"],["Email","sana.menon.2@example.test"],["Phone","+910000010002"],["Customer status","Active"],["Loan count","1"]]'>
+                    <td><span class="primary-cell">Sana Menon</span><small>Customer since 02 Mar 2026</small></td><td>CUS-000002</td><td>sana.menon.2@example.test</td><td>+91 00000 10002</td><td>1</td><td><span class="badge badge-success">Active</span></td><td><button class="table-action" type="button" data-action="show-details">View</button><button class="table-action" type="button" data-action="edit-customer" data-customer-id="CUS-000002">Edit</button></td>
+                  </tr>
+                  <tr data-status="active" data-search="dev bose cus-000003 dev.bose.3@example.test +910000010003" data-details='[["Customer ID","CUS-000003"],["Name","Dev Bose"],["Email","dev.bose.3@example.test"],["Phone","+910000010003"],["Customer status","Active"],["Loan count","1"]]'>
+                    <td><span class="primary-cell">Dev Bose</span><small>Customer since 03 Mar 2026</small></td><td>CUS-000003</td><td>dev.bose.3@example.test</td><td>+91 00000 10003</td><td>1</td><td><span class="badge badge-success">Active</span></td><td><button class="table-action" type="button" data-action="show-details">View</button><button class="table-action" type="button" data-action="edit-customer" data-customer-id="CUS-000003">Edit</button></td>
+                  </tr>
+                  <tr data-status="active" data-search="isha kapoor cus-000004 isha.kapoor.4@example.test +910000010004" data-details='[["Customer ID","CUS-000004"],["Name","Isha Kapoor"],["Email","isha.kapoor.4@example.test"],["Phone","+910000010004"],["Customer status","Active"],["Loan count","1"]]'>
+                    <td><span class="primary-cell">Isha Kapoor</span><small>Customer since 04 Mar 2026</small></td><td>CUS-000004</td><td>isha.kapoor.4@example.test</td><td>+91 00000 10004</td><td>1</td><td><span class="badge badge-success">Active</span></td><td><button class="table-action" type="button" data-action="show-details">View</button><button class="table-action" type="button" data-action="edit-customer" data-customer-id="CUS-000004">Edit</button></td>
+                  </tr>
+                  <tr data-status="active" data-search="isha bose cus-000005 isha.bose.5@example.test +910000010005" data-details='[["Customer ID","CUS-000005"],["Name","Isha Bose"],["Email","isha.bose.5@example.test"],["Phone","+910000010005"],["Customer status","Active"],["Loan count","1"]]'>
+                    <td><span class="primary-cell">Isha Bose</span><small>Customer since 05 Mar 2026</small></td><td>CUS-000005</td><td>isha.bose.5@example.test</td><td>+91 00000 10005</td><td>1</td><td><span class="badge badge-success">Active</span></td><td><button class="table-action" type="button" data-action="show-details">View</button><button class="table-action" type="button" data-action="edit-customer" data-customer-id="CUS-000005">Edit</button></td>
+                  </tr>
+                  <tr data-status="active" data-search="zoya singh cus-000006 zoya.singh.6@example.test +910000010006" data-details='[["Customer ID","CUS-000006"],["Name","Zoya Singh"],["Email","zoya.singh.6@example.test"],["Phone","+910000010006"],["Customer status","Active"],["Loan count","1"]]'>
+                    <td><span class="primary-cell">Zoya Singh</span><small>Customer since 06 Mar 2026</small></td><td>CUS-000006</td><td>zoya.singh.6@example.test</td><td>+91 00000 10006</td><td>1</td><td><span class="badge badge-success">Active</span></td><td><button class="table-action" type="button" data-action="show-details">View</button><button class="table-action" type="button" data-action="edit-customer" data-customer-id="CUS-000006">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="panel-footer-note">Customer records are read from and saved to the Flask API.</div>
+          </section>
+          <div class="page-footer"><span>Customer information · Local synthetic database</span><span>Local development only</span></div>
+        </main>
+      </div>
+      <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    </div>
+    <dialog class="dialog" id="customer-dialog" aria-labelledby="customer-dialog-title">
+      <div class="dialog-header"><div><p class="eyebrow">CUSTOMER PROFILE</p><h2 id="customer-dialog-title">Add customer</h2></div><button class="icon-button" type="button" data-action="close-dialog" aria-label="Close dialog">×</button></div>
+      <div class="dialog-body">
+        <div class="message" id="customer-form-message" role="status"></div>
+        <form id="customer-form">
+          <input type="hidden" name="customer_id">
+          <div class="form-grid">
+            <div class="form-field"><label for="customer-first-name">First name</label><input class="form-control" id="customer-first-name" name="first_name" required maxlength="80" autocomplete="given-name"></div>
+            <div class="form-field"><label for="customer-last-name">Last name</label><input class="form-control" id="customer-last-name" name="last_name" required maxlength="80" autocomplete="family-name"></div>
+            <div class="form-field form-field-full"><label for="customer-email">Email address</label><input class="form-control" id="customer-email" name="email" type="email" required maxlength="160" autocomplete="email"></div>
+            <div class="form-field"><label for="customer-phone">Phone number</label><input class="form-control" id="customer-phone" name="phone" type="tel" maxlength="24" autocomplete="tel"></div>
+            <div class="form-field"><label for="customer-status">Status</label><select class="form-control" id="customer-status" name="customer_status"><option value="active">Active</option><option value="inactive">Inactive</option></select></div>
+          </div>
+          <p class="form-hint">Changes are submitted to the Flask API.</p>
+          <div class="dialog-actions"><button class="button button-secondary" type="button" data-action="close-dialog">Cancel</button><button class="button button-primary" type="submit">Save customer</button></div>
+        </form>
+      </div>
+    </dialog>
+    <dialog class="dialog" id="record-dialog" aria-labelledby="record-dialog-title"><div class="dialog-header"><div><p class="eyebrow">CUSTOMER DETAILS</p><h2 id="record-dialog-title">Customer record</h2></div><button class="icon-button" type="button" data-action="close-dialog" aria-label="Close details">×</button></div><div class="dialog-body" data-dialog-content></div></dialog>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/customers.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Local configuration and logs
+.env
+*.log
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# SQLite transient journal files (keep the project database)
+database/*.db-journal
+database/*.db-shm
+database/*.db-wal

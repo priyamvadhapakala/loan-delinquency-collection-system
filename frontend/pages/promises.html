@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10233f"><title>Promises to pay · Meridian Collections</title><link rel="stylesheet" href="../css/style.css"></head>
+  <body data-page="promises" data-root="../"><div class="app-shell"><aside class="sidebar" id="app-sidebar" aria-label="Main navigation"></aside><div class="sidebar-scrim" data-sidebar-close></div><div class="workspace"><header class="topbar" id="app-topbar"></header>
+    <main class="main-content">
+      <div class="page-heading"><div><p class="eyebrow">PAYMENT COMMITMENTS</p><h1>Promise-to-pay</h1><p class="page-subtitle">Create, validate, and track payment promises against current arrears.</p></div><div class="heading-actions"><span class="date-chip">Flask API records</span></div></div>
+      <section class="metric-grid">
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Pending promises</span><span class="metric-icon icon-gold">◷</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">From case API records</span></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Kept</span><span class="metric-icon icon-green">✓</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">From case API records</span></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Broken</span><span class="metric-icon icon-violet">!</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">From case API records</span></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Currency</span><span class="metric-icon icon-blue">¤</span></div><strong class="metric-value">Loading</strong><span class="metric-foot">Currency codes returned by API</span></article>
+      </section>
+      <section class="panel" style="margin-bottom:16px" aria-label="Create a promise to pay">
+        <div class="panel-header"><div><p class="eyebrow">NEW COMMITMENT</p><h2>Record a promise</h2></div></div>
+        <form id="promise-form"><div class="form-grid">
+          <div class="form-field"><label for="promise-case">Collection case</label><select class="form-control" id="promise-case" name="case_id" required><option value="">Choose an active case</option></select></div>
+          <div class="form-field"><label for="promise-amount">Promised amount (minor currency units)</label><input class="form-control" id="promise-amount" name="amount_minor" type="number" min="1" step="1" required></div>
+          <div class="form-field"><label for="promise-due-date">Promised due date</label><input class="form-control" id="promise-due-date" name="due_date" type="date" required></div>
+        </div><p class="form-hint">The API rejects promises above current arrears and promises on disputed debt.</p>
+        <div class="message" id="promise-form-message" role="status"></div><div class="dialog-actions"><button class="button button-primary" type="submit">Record promise</button><button class="button button-secondary" type="button" data-action="evaluate-promises">Evaluate overdue promises</button></div></form>
+      </section>
+      <section class="filter-bar"><label class="search-field"><span class="search-icon" aria-hidden="true">⌕</span><input class="form-control" type="search" placeholder="Search promise, customer or case" aria-label="Search promises" data-filter-table="#promise-table" data-status-filter="#promise-status"></label><select class="form-control" id="promise-status" aria-label="Filter promise status"><option value="">All statuses</option><option value="pending">Pending</option><option value="kept">Kept</option><option value="broken">Broken</option><option value="cancelled">Cancelled</option></select><span class="table-count" data-visible-count>Loading</span></section>
+      <section class="table-shell"><div class="table-wrap"><table class="data-table" id="promise-table"><thead><tr><th>Promise</th><th>Customer / case</th><th>Promised date</th><th>Amount</th><th>Recorded on</th><th>Status</th><th>Resolved</th><th>Update status</th></tr></thead><tbody>
+        <tr data-status="pending" data-search="ptp-000001 vikram patel cas-000001 25 oct 2026"><td><span class="primary-cell">PTP-000001</span><small>CAS-000001</small></td><td>Vikram Patel<small>LON-000001</small></td><td>25 Oct 2026</td><td class="amount-cell">₹ 50,000</td><td>20 Oct 2026</td><td><span class="badge badge-warning">Pending</span></td><td>—</td></tr>
+        <tr data-status="kept" data-search="ptp-000002 sana menon cas-000002 15 oct 2026"><td><span class="primary-cell">PTP-000002</span><small>CAS-000002</small></td><td>Sana Menon<small>LON-000002</small></td><td>15 Oct 2026</td><td class="amount-cell">₹ 9,500</td><td>10 Oct 2026</td><td><span class="badge badge-success">Kept</span></td><td>15 Oct 2026</td></tr>
+        <tr data-status="broken" data-search="ptp-000003 dev bose cas-000003 5 oct 2026"><td><span class="primary-cell">PTP-000003</span><small>CAS-000003</small></td><td>Dev Bose<small>LON-000003</small></td><td>05 Oct 2026</td><td class="amount-cell">₹ 80,000</td><td>20 Aug 2026</td><td><span class="badge badge-danger">Broken</span></td><td>06 Oct 2026</td></tr>
+        <tr data-status="pending" data-search="ptp-000004 isha kapoor cas-000004 26 oct 2026"><td><span class="primary-cell">PTP-000004</span><small>CAS-000004</small></td><td>Isha Kapoor<small>LON-000004</small></td><td>26 Oct 2026</td><td class="amount-cell">₹ 20,450</td><td>15 Oct 2026</td><td><span class="badge badge-warning">Pending</span></td><td>—</td></tr>
+        <tr data-status="pending" data-search="ptp-000005 zoya singh cas-000005 27 oct 2026"><td><span class="primary-cell">PTP-000005</span><small>CAS-000005</small></td><td>Zoya Singh<small>LON-000006</small></td><td>27 Oct 2026</td><td class="amount-cell">₹ 26,400</td><td>16 Oct 2026</td><td><span class="badge badge-warning">Pending</span></td><td>—</td></tr>
+      </tbody></table></div><div class="panel-footer-note">Promise terms are immutable. Status changes require payment evidence for kept promises and a passed due date for broken promises.</div></section>
+      <div class="page-footer"><span>Promise outcomes are checked against posted payments</span><span>Use synthetic/test records only</span></div>
+    </main></div><div class="toast-region" aria-live="polite" aria-atomic="true"></div></div>
+    <script src="../js/api.js"></script><script src="../js/app.js"></script><script src="../js/collections.js"></script>
+  </body>
+</html>
